@@ -18,8 +18,6 @@ void TemperatureSensor::update(){
     connect(mProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(onExit(int, QProcess::ExitStatus)));
 
     mProcess->start(cmd);
-
-    //emit temperatureUpdated();
 }
 
 int TemperatureSensor::getTemperature(){
@@ -28,16 +26,15 @@ int TemperatureSensor::getTemperature(){
 
 void TemperatureSensor::gotData() {
     QByteArray byte = mProcess->readAllStandardOutput();
-    //qDebug() << QString(byte);
     parseTemperature(QString(byte));
 }
 
 void TemperatureSensor::gotError(QProcess::ProcessError err) {
-    qDebug() << "gotError: " << err;
+    //qDebug() << "gotError: " << err;
 }
 
 void TemperatureSensor::onExit(int exitCode, QProcess::ExitStatus exitStatus) {
-    qDebug() << "Exit code; " << exitCode << " exit status: " << exitStatus;
+    //qDebug() << "Exit code; " << exitCode << " exit status: " << exitStatus;
 }
 
 void TemperatureSensor::parseTemperature(QString data){
