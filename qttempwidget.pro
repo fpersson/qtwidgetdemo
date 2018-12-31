@@ -5,7 +5,8 @@ QT += qml quick widgets
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    temperaturesensor.cpp
+    temperaturesensor.cpp \
+    sysinfo.cpp
 
 RESOURCES += qml.qrc
 
@@ -32,6 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    temperaturesensor.h
+    temperaturesensor.h \
+    sysinfo.h
 
 DISTFILES +=
