@@ -7,14 +7,18 @@ ApplicationWindow {
     visible: true
     width: 450
     height: 150
-    title: qsTr("QtTemperaturDemo")
+    title: qsTr("QtTemperatureDemo")
+    color: "#343434"
     MainForm {
         width: 150
         height: 150
     }
 
     SysInfo {
-        x: 150
+        x: 156
         y: 0
+        height: 150
+        anchors.rightMargin: 0
+        anchors.verticalCenterOffset: 0
     }
 }

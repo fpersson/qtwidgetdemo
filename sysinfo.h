@@ -12,7 +12,7 @@ const double gigabyte = megabyte * 1024;
 class SysInfo : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString getHostName READ getHostName)
+    Q_PROPERTY(QString getHostName READ getHostName NOTIFY updated)
     Q_PROPERTY(QString getUptime READ getUptime NOTIFY updated)
     Q_PROPERTY(QString getMemory READ getMemory NOTIFY updated)
     Q_PROPERTY(QString getProc READ getProc NOTIFY updated)

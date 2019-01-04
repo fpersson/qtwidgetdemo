@@ -11,7 +11,7 @@ Item {
         id: lblHostname
         width: 80
         height: 20
-        color: "#ffffff"
+        color: "#999999"
         text: sysInfo.getHostName
         font.capitalization: Font.AllUppercase
         font.bold: true
@@ -27,7 +27,7 @@ Item {
     Rectangle {
         id: rectangle
         height: 1
-        color: "#ffffff"
+        color: "#999999"
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: parent.left
@@ -40,7 +40,7 @@ Item {
         id: lblUptime
         width: 300
         height: 15
-        color: "#ffffff"
+        color: "#999999"
         text: sysInfo.getUptime
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.left: parent.left
@@ -55,7 +55,7 @@ Item {
         x: 0
         width: 300
         height: 15
-        color: "#ffffff"
+        color: "#999999"
         text: sysInfo.getMemory
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
@@ -68,7 +68,7 @@ Item {
         x: 0
         width: 300
         height: 37
-        color: "#ffffff"
+        color: "#999999"
         text: sysInfo.getDiskInfo
         anchors.top: parent.top
         anchors.topMargin: 68

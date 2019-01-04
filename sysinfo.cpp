@@ -17,7 +17,6 @@ SysInfo::SysInfo(QObject *parent) : QObject(parent){
 }
 
 QString SysInfo::getHostName(){
-    qDebug() << QHostInfo::localHostName();
     return QHostInfo::localHostName();
 }
 
@@ -76,22 +75,9 @@ QString SysInfo::getProc(){
 QString SysInfo::getDiskInfo(){
     QStorageInfo storage = QStorageInfo::root();
 
-    /*
-    qDebug() << storage.rootPath();
-    if (storage.isReadOnly()){
-        qDebug() << "isReadOnly:" << storage.isReadOnly();
-    }
-    */
-
     QString bytesTotal = QString::number(storage.bytesTotal()/gigabyte);
     QString bytesAvailable = QString::number(storage.bytesAvailable()/gigabyte);
 
-    /*
-    qDebug() << "name:" << storage.name();
-    qDebug() << "filesystem type:" << storage.fileSystemType();
-    qDebug() << "size: " << bytesTotal.mid(0,4) << " GB";
-    qDebug() << "free space :" << bytesAvailable.mid(0,4) << " GB";
-    */
     QString ret = QString("<b>Disk space</b>: %1 free of %2 GB total")
             .arg(bytesAvailable.mid(0,4))
             .arg(bytesTotal.mid(0,4));

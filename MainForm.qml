@@ -15,22 +15,19 @@ Item {
             id: ts1
         }
         id: rectangle
-        color: "#020202"
+        color: "#343434"
         anchors.fill: parent
 
         CircularGauge {
             id: tempGauge
-            anchors.rightMargin: 0
-            anchors.bottomMargin: 0
-            anchors.leftMargin: 0
-            anchors.topMargin: 0
+            anchors.rightMargin: 2
+            anchors.bottomMargin: 2
+            anchors.leftMargin: 2
+            anchors.topMargin: 2
             anchors.fill: parent
             value: ts1.getTemperature
 
             style: CircularGaugeStyle {
-                //labelInset: outerRadius * 0.1
-                //tickmarkLabel: null
-
                 function degreesToRadians(degrees) {
                     return degrees * (Math.PI / 180);
                 }
@@ -55,7 +52,7 @@ Item {
                     implicitWidth: outerRadius * 0.02
                     antialiasing: true
                     implicitHeight: outerRadius * 0.06
-                    color: styleData.value >= 75 ? "#e34c22" : "#e5e5e5"
+                    color: styleData.value >= 75 ? "#e34c22" : "#999999"
                 }
 
                 minorTickmark: Rectangle {
@@ -63,18 +60,16 @@ Item {
                     implicitWidth: outerRadius * 0.01
                     antialiasing: true
                     implicitHeight: outerRadius * 0.03
-                    color: "#e5e5e5"
+                    color: "#999999"
                 }
 
-                /*
+
                 needle: Rectangle {
-                    y: outerRadius * 0.15
                     implicitWidth: outerRadius * 0.03
                     implicitHeight: outerRadius * 0.9
                     antialiasing: true
-                    color: Qt.rgba(0.66, 0.3, 0, 1)
+                    color: "#e34c22"
                 }
-                */
             }
 
             TextEdit {
@@ -83,7 +78,7 @@ Item {
                 y: 135
                 width: 80
                 height: 15
-                color: "#ffffff"
+                color: "#999999"
                 text: qsTr("CPU Temp")
                 anchors.horizontalCenterOffset: 0
                 anchors.bottom: parent.bottom
