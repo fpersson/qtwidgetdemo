@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>MainForm.qml</file>
         <file>SysInfo.qml</file>
+        <file>DigiClock.qml</file>
+        <file>digital-7.ttf</file>
     </qresource>
 </RCC>
