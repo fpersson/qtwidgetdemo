@@ -6,10 +6,14 @@
 #include <QJsonObject>
 
 OutdoorTemperature::OutdoorTemperature(QObject *parent) : QObject(parent){
-    mgr = new QNetworkAccessManager();
+    mNetworkManager = new QNetworkAccessManager(this);
+    mTimer = new QTimer(this);
+    connect(mNetworkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(gotData(QNetworkReply*)));
+    connect(mTimer, SIGNAL(timeout()), this, SLOT(update()));
+    ///doing init check
+    update();
 
-    connect(mgr, SIGNAL(finished(QNetworkReply*)), this, SLOT(gotData(QNetworkReply*)));
-    mgr->get(QNetworkRequest(QUrl("https://testing-c408e.firebaseio.com/sensors/indoors/current.json")));
+    mTimer->start(1000);
 }
 
 void OutdoorTemperature::gotData(QNetworkReply *data){
@@ -17,5 +21,27 @@ void OutdoorTemperature::gotData(QNetworkReply *data){
     QString result(array);
     QJsonDocument jDoc = QJsonDocument::fromJson(result.toUtf8());
     QJsonObject obj = jDoc.object();
-    qDebug() << "Temp:" << obj["temp"].toString() <<"C at "; //result;
+    //qDebug() << "Temp:" << obj["temp"].toString() <<"C at " << obj["time"].toString(); //result;
+    mTemp = obj["temp"].toString().toFloat();
+    mDate = obj["time"].toString();
+
+    emit temperatureUpdated();
+}
+
+void OutdoorTemperature::update(){
+    ///@todo implement
+    if(mNetworkManager){
+        mNetworkManager->get(QNetworkRequest(QUrl("https://testing-c408e.firebaseio.com/sensors/indoors/current.json")));
+    }else{
+        ///@todo handle error
+        qDebug() << "Checking temp [failed]";
+    }
+}
+
+float OutdoorTemperature::getTemperature(){
+    return mTemp;
+}
+
+QString OutdoorTemperature::getLastDate(){
+    return mDate;
 }
