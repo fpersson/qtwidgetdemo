@@ -28,4 +28,11 @@ ApplicationWindow {
         height: 150
    }
 
+    OutdoorTemperature{
+        x: 156
+        y: 0
+        height: 150
+        anchors.rightMargin: 0
+        anchors.verticalCenterOffset: 0
+    }
 }

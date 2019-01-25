@@ -7,7 +7,8 @@ CONFIG += c++11
 SOURCES += main.cpp \
     temperaturesensor.cpp \
     sysinfo.cpp \
-    clock.cpp
+    clock.cpp  \
+    outdoortemperature.cpp
 
 RESOURCES += qml.qrc
 
@@ -36,6 +37,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     temperaturesensor.h \
     sysinfo.h \
-    clock.h
+    clock.h \
+    outdoortemperature.h
 
 DISTFILES +=
+
+FORMS +=
