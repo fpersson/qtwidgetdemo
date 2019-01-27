@@ -32,7 +32,7 @@ Item {
                 id: text1
                 x: 2
                 y: 98
-                width: 400
+                width:400
                 height: 30
                 color: "#999999"
                 text: clock1.getDate
