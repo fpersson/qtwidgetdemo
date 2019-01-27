@@ -7,7 +7,7 @@ import QtQuick.Controls.Styles 1.4
 import fpde.system.clock 1.0
 
 Item {
-    width: 480
+    width: 400
     id: item_clock
     FPClock{
         id: clock1
@@ -19,7 +19,7 @@ Item {
         Text {
             x: 0
             y: 8
-            width: 481
+            width: 400
             height: 90
             //width: 480
             //height: 47
@@ -32,7 +32,7 @@ Item {
                 id: text1
                 x: 2
                 y: 98
-                width: 479
+                width: 400
                 height: 30
                 color: "#999999"
                 text: clock1.getDate

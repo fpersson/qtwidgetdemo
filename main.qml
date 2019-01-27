@@ -5,7 +5,7 @@ import QtQuick.Dialogs 1.2
 ApplicationWindow {
     id: applicationWindow
     visible: true
-    width: 550
+    width: 480
     height: 320
     title: qsTr("QtTemperatureDemo")
     color: "#343434"
@@ -17,17 +17,17 @@ ApplicationWindow {
     }
 
     SysInfo {
-        x: 230
+        x: 222
         y: 0
         height: 150
-        anchors.rightMargin: 0
+        anchors.rightMargin: -42
         anchors.verticalCenterOffset: -85
     }
 
     DigiClock {
         x: 66
         y: 170
-        width: 484
+        width: 414
         height: 150
    }
 
