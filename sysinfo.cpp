@@ -13,7 +13,7 @@
 SysInfo::SysInfo(QObject *parent) : QObject(parent){
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateData()));
-    timer->start(1000);
+    timer->start(100000);
 }
 
 QString SysInfo::getHostName(){

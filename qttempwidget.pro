@@ -8,7 +8,8 @@ SOURCES += main.cpp \
     temperaturesensor.cpp \
     sysinfo.cpp \
     clock.cpp  \
-    outdoortemperature.cpp
+    outdoortemperature.cpp \
+    mqtt.cpp
 
 RESOURCES += qml.qrc
 
@@ -38,8 +39,11 @@ HEADERS += \
     temperaturesensor.h \
     sysinfo.h \
     clock.h \
-    outdoortemperature.h
+    outdoortemperature.h \
+    mqtt.h
 
 DISTFILES +=
 
 FORMS +=
+
+unix:!macx: LIBS += -lmosquittopp
