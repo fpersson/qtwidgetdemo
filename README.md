@@ -1,13 +1,27 @@
 ## About
 ![alt text](./screenshots/screenshot1.png)
 
-## Building
+### Build.
+```bash
+$ mkdir build
+$ cd build
+$ cmake ..
+$ cd ..
+$ make -C build
+```
 
 ### Usage.
+```bash
+$ ./build/qtwidgetdemo
+```
 
-### Dependecy.
+### Dependency.
+* qt 5 (devel)
+* libmosquitto-dev
+* libmosquittopp-dev
+* NOTE: Not tested with qt 6.x
 
-## Licens (Zero Clause BSD)
+## License (Zero Clause BSD)
 ```
     Copyright (C) 2019, Fredrik Persson <fpersson.se@gmail.com>
 
