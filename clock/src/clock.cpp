@@ -6,7 +6,7 @@
 
 namespace fpde {
     Clock::Clock(QObject *parent) : QObject(parent){
-        QTimer *timer = new QTimer(this);
+        auto *timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(update()));
         timer->start(1000);
     }

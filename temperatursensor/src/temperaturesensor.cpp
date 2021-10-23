@@ -6,7 +6,7 @@
 #include <QProcess>
 
 TemperatureSensor::TemperatureSensor(QObject *parent) : QObject(parent), mTemperature(-1){
-    QTimer *timer = new QTimer(this);
+    auto *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(1000);
 }

@@ -9,18 +9,24 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick Widgets REQUIRED)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${Qt5Widgets_INCLUDE_DIRS})
+include_directories(${Qt5Core_INCLUDE_DIRS})
+include_directories(${Qt5Quick_INCLUDE_DIRS})
+
+add_subdirectory(sysinfo)
+add_subdirectory(mqtt)
+add_subdirectory(clock)
+add_subdirectory(temperatursensor)
+
 set(PROJECT_SOURCES
         main.cpp
-        temperaturesensor.cpp
-        sysinfo.cpp
-        clock.cpp
-        mqtt.cpp
         qml.qrc
 )
 
@@ -42,7 +48,7 @@ else()
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(qtwidgetdemo
-          ${PROJECT_SOURCES}
+                ${PROJECT_SOURCES}
         )
     endif()
 endif()
@@ -50,7 +56,7 @@ endif()
 target_compile_definitions(qtwidgetdemo
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(qtwidgetdemo
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Widgets mosquittopp)
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Widgets libsysinfo libsensor libmqtt libclock mosquittopp)
 
 set_target_properties(qtwidgetdemo PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

@@ -1,9 +1,9 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
-#include "temperaturesensor.h"
-#include "sysinfo.h"
-#include "clock.h"
-#include "mqtt.h"
+#include "temperatursensor/src/temperaturesensor.h"
+#include "sysinfo/src/sysinfo.h"
+#include "clock/src/clock.h"
+#include "mqtt/src/mqtt.h"
 
 int main(int argc, char *argv[])
 {

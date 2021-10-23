@@ -11,7 +11,7 @@
 #include "sysinfo.h"
 
 SysInfo::SysInfo(QObject *parent) : QObject(parent){
-    QTimer *timer = new QTimer(this);
+    auto *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateData()));
     timer->start(100000);
 }
@@ -25,7 +25,7 @@ void SysInfo::updateData(){
 }
 
 QString SysInfo::getUptime(){
-    struct sysinfo si;
+    struct sysinfo si{};
     int error = sysinfo(&si);
     if(error != 0){
         qDebug() << "Errror: " << error;
@@ -46,7 +46,7 @@ QString SysInfo::getUptime(){
 }
 
 QString SysInfo::getMemory(){
-    struct sysinfo si;
+    struct sysinfo si{};
     int error = sysinfo(&si);
     if(error != 0){
         qDebug() << "Errror: " << error;
@@ -62,7 +62,7 @@ QString SysInfo::getMemory(){
 }
 
 QString SysInfo::getProc(){
-    struct sysinfo si;
+    struct sysinfo si{};
     int error = sysinfo(&si);
     if(error != 0){
         qDebug() << "Errror: " << error;
