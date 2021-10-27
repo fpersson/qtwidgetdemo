@@ -21,6 +21,9 @@ $ ./build/qtwidgetdemo
 * libmosquittopp-dev
 * NOTE: Not tested with qt 6.x
 
+### Known issue
+* The cpu temperature is not working with AMD
+
 ## License (Zero Clause BSD)
 ```
     Copyright (C) 2019, Fredrik Persson <fpersson.se@gmail.com>
