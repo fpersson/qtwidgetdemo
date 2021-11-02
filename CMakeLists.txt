@@ -68,3 +68,5 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_import_qml_plugins(qtwidgetdemo)
     qt_finalize_executable(qtwidgetdemo)
 endif()
+
+install(TARGETS qtwidgetdemo DESTINATION /usr/local/bin/)
